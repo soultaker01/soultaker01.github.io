@@ -66,10 +66,14 @@ function showToast(toast) {
 
 /* ─── NAV SCROLL ─── */
 const navEl = document.querySelector('nav');
-window.addEventListener('scroll', () => {
-    navEl.style.borderBottomColor = window.scrollY > 60
-        ? 'rgba(255,255,255,0.10)'
-        : 'rgba(255,255,255,0.05)';
-}, { passive: true });
+if (navEl) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 60) {
+            navEl.style.boxShadow = '8px 8px 18px #d5dce5, -8px -8px 18px #ffffff';
+        } else {
+            navEl.style.boxShadow = '6px 6px 14px #d5dce5, -6px -6px 14px #ffffff';
+        }
+    }, { passive: true });
+}
 
 /* ─── SHAPE GRID REMOVED ─── */
